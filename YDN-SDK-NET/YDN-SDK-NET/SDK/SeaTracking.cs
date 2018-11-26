@@ -37,19 +37,40 @@ namespace YDN_SDK_NET.SDK
 
         public class Filter
         {
+            /// <summary>
+            /// 提单号
+            /// </summary>
             public string blno { get; set; }
+            /// <summary>
+            /// 箱号
+            /// </summary>
+            public string ctnrno { get; set; }
+            /// <summary>
+            /// 船东代码（必填）
+            /// </summary>
             public string carriercd { get; set; }
+            /// <summary>
+            /// 装货港港口代码
+            /// </summary>
             public string portcd { get; set; }
+            /// <summary>
+            /// 船名（箱号订阅时必填）
+            /// </summary>
+            public string vslname { get; set; }
+            /// <summary>
+            /// 航次（箱号订阅时必填）
+            /// </summary>
+            public string voy { get; set; }
         }
 
 
 
         /// <summary>
-        /// 海运订阅之批量上传订阅提单号
+        /// 海运订阅之批量上传订阅
         /// </summary>
-        /// <param name="filters">订阅提单号对象数组</param>
+        /// <param name="filters">订阅单号对象数组</param>
         /// <returns></returns>
-        public string BookingUploadBlnoLst(List<Filter> filters)
+        public string BookingUploadLst(List<Filter> filters)
         {
             return "";
         }
@@ -59,13 +80,13 @@ namespace YDN_SDK_NET.SDK
         /// </summary>
         /// <param name="filters">订阅提单号对象数组</param>
         /// <returns></returns>
-        public string BookingDownloadBlnoLst(List<Filter> filters)
+        public string BookingDownloadLst(List<Filter> filters)
         {
             return "";
         }
 
         /// <summary>
-        /// 海运订阅之即时更新
+        /// 海运提单号订阅之即时更新
         /// </summary>
         /// <param name="blno"></param>
         /// <param name="carriercd"></param>
@@ -77,7 +98,7 @@ namespace YDN_SDK_NET.SDK
         }
 
         /// <summary>
-        /// 箱号订阅之即时更新
+        /// 海运箱号订阅之即时更新
         /// </summary>
         /// <param name="ctnrno"></param>
         /// <param name="carriercd"></param>
