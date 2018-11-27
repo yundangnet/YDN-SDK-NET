@@ -105,27 +105,26 @@
             <param name="addTimestamp">是否添加时间戳</param>
             <remarks>配合VerifyHashRequest使用</remarks>
         </member>
-        <member name="M:YDN_SDK_NET.SDK.AirTracking.QueryAwbno(System.String,System.String)">
+        <member name="M:YDN_SDK_NET.SDK.AirTracking.BookingAwbno(System.String,System.String)">
             <summary>
-            空运订阅之即时更新
+            空运订阅之单票订阅
             </summary>
-            <param name="blno"></param>
-            <param name="carriercd"></param>
-            <param name="portcd"></param>
+            <param name="awbno">运单号</param>
+            <param name="carriercd">航司代码（二字码）</param>
             <returns></returns>
         </member>
         <member name="M:YDN_SDK_NET.SDK.AirTracking.BookingUploadLst(System.Collections.Generic.List{YDN_SDK_NET.SDK.AirTracking.Filter})">
             <summary>
             空运订阅之批量上传订阅
             </summary>
-            <param name="filters">订阅单号对象数组</param>
+            <param name="filterLst">订阅单号对象数组</param>
             <returns></returns>
         </member>
         <member name="M:YDN_SDK_NET.SDK.AirTracking.BookingDownloadLst(System.Collections.Generic.List{YDN_SDK_NET.SDK.AirTracking.Filter})">
             <summary>
             空运订阅之批量下载订阅数据
             </summary>
-            <param name="filters">订阅提单号对象数组</param>
+            <param name="filterLst">订阅提单号对象数组</param>
             <returns></returns>
         </member>
         <member name="P:YDN_SDK_NET.SDK.AirTracking.Filter.awbno">
@@ -135,7 +134,7 @@
         </member>
         <member name="P:YDN_SDK_NET.SDK.AirTracking.Filter.carriercd">
             <summary>
-            航司代码（必填）
+            航司代码（二字码，必填）
             </summary>
         </member>
         <member name="T:YDN_SDK_NET.SDK.SeaTracking">
@@ -147,34 +146,35 @@
             <summary>
             海运订阅之批量上传订阅
             </summary>
-            <param name="filters">订阅单号对象数组</param>
+            <param name="filterLst">订阅单号对象数组</param>
             <returns></returns>
         </member>
         <member name="M:YDN_SDK_NET.SDK.SeaTracking.BookingDownloadLst(System.Collections.Generic.List{YDN_SDK_NET.SDK.SeaTracking.Filter})">
             <summary>
             海运订阅之批量下载订阅数据
             </summary>
-            <param name="filters">订阅提单号对象数组</param>
+            <param name="filterLst">订阅提单号对象数组</param>
             <returns></returns>
         </member>
-        <member name="M:YDN_SDK_NET.SDK.SeaTracking.BookingBlno(System.String,System.String,System.String)">
+        <member name="M:YDN_SDK_NET.SDK.SeaTracking.BookingBlno(System.String,System.String,System.String,System.String)">
             <summary>
             海运提单号订阅之即时更新
             </summary>
-            <param name="blno"></param>
-            <param name="carriercd"></param>
-            <param name="portcd"></param>
+            <param name="blno">提单号</param>
+            <param name="ctnrno">箱号（SITC新海丰订阅时，箱号必填）</param>
+            <param name="carriercd">船东代码</param>
+            <param name="portcd">港口代码</param>
             <returns></returns>
         </member>
         <member name="M:YDN_SDK_NET.SDK.SeaTracking.BookingCtnrno(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             海运箱号订阅之即时更新
             </summary>
-            <param name="ctnrno"></param>
-            <param name="carriercd"></param>
-            <param name="vslname"></param>
-            <param name="voy"></param>
-            <param name="portcd"></param>
+            <param name="ctnrno">箱号</param>
+            <param name="carriercd">船东代码</param>
+            <param name="vslname">船名</param>
+            <param name="voy">航次</param>
+            <param name="portcd">港口代码</param>
             <returns></returns>
         </member>
         <member name="P:YDN_SDK_NET.SDK.SeaTracking.Filter.blno">

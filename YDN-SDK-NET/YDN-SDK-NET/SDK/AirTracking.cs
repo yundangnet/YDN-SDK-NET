@@ -30,14 +30,14 @@ namespace YDN_SDK_NET.SDK
             get { return _secret; }
             set { _secret = value; }
         }
+
         /// <summary>
-        /// 空运订阅之即时更新
+        /// 空运订阅之单票订阅
         /// </summary>
-        /// <param name="blno"></param>
-        /// <param name="carriercd"></param>
-        /// <param name="portcd"></param>
+        /// <param name="awbno">运单号</param>
+        /// <param name="carriercd">航司代码（二字码）</param>
         /// <returns></returns>
-        public string QueryAwbno(string awbno, string carriercd)
+        public string BookingAwbno(string awbno, string carriercd)
         {
             return "";
         }
@@ -49,7 +49,7 @@ namespace YDN_SDK_NET.SDK
             /// </summary>
             public string awbno { get; set; }
             /// <summary>
-            /// 航司代码（必填）
+            /// 航司代码（二字码，必填）
             /// </summary>
             public string carriercd { get; set; }
         }
@@ -57,7 +57,7 @@ namespace YDN_SDK_NET.SDK
         /// <summary>
         /// 空运订阅之批量上传订阅
         /// </summary>
-        /// <param name="filters">订阅单号对象数组</param>
+        /// <param name="filterLst">订阅单号对象数组</param>
         /// <returns></returns>
         public string BookingUploadLst(List<Filter> filterLst)
         {
@@ -67,7 +67,7 @@ namespace YDN_SDK_NET.SDK
         /// <summary>
         /// 空运订阅之批量下载订阅数据
         /// </summary>
-        /// <param name="filters">订阅提单号对象数组</param>
+        /// <param name="filterLst">订阅提单号对象数组</param>
         /// <returns></returns>
         public string BookingDownloadLst(List<Filter> filterLst)
         {

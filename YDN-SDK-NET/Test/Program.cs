@@ -37,7 +37,7 @@ namespace Test
             #region 单票查询订阅
 
             //单票查询并订阅
-            var result = seaTrack.BookingBlno("966877857", "MSK", "CNSZX");
+            var result = seaTrack.BookingBlno("966877857", "", "MSK", "CNSZX");
 
             #endregion
             #endregion
@@ -67,7 +67,7 @@ namespace Test
 
             //空运单票订阅
             #region 单票订阅
-            var airResult = airTrack.QueryAwbno("07419533780", "KL");
+            var airResult = airTrack.BookingAwbno("07419533780", "KL");
             #endregion
 
             #endregion

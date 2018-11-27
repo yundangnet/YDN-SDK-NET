@@ -68,7 +68,7 @@ namespace YDN_SDK_NET.SDK
         /// <summary>
         /// 海运订阅之批量上传订阅
         /// </summary>
-        /// <param name="filters">订阅单号对象数组</param>
+        /// <param name="filterLst">订阅单号对象数组</param>
         /// <returns></returns>
         public string BookingUploadLst(List<Filter> filterLst)
         {
@@ -78,7 +78,7 @@ namespace YDN_SDK_NET.SDK
         /// <summary>
         /// 海运订阅之批量下载订阅数据
         /// </summary>
-        /// <param name="filters">订阅提单号对象数组</param>
+        /// <param name="filterLst">订阅提单号对象数组</param>
         /// <returns></returns>
         public string BookingDownloadLst(List<Filter> filterLst)
         {
@@ -88,11 +88,12 @@ namespace YDN_SDK_NET.SDK
         /// <summary>
         /// 海运提单号订阅之即时更新
         /// </summary>
-        /// <param name="blno"></param>
-        /// <param name="carriercd"></param>
-        /// <param name="portcd"></param>
+        /// <param name="blno">提单号</param>
+        /// <param name="ctnrno">箱号（SITC新海丰订阅时，箱号必填）</param>
+        /// <param name="carriercd">船东代码</param>
+        /// <param name="portcd">港口代码</param>
         /// <returns></returns>
-        public string BookingBlno(string blno, string carriercd, string portcd)
+        public string BookingBlno(string blno,string ctnrno, string carriercd, string portcd)
         {
             return "";
         }
@@ -100,11 +101,11 @@ namespace YDN_SDK_NET.SDK
         /// <summary>
         /// 海运箱号订阅之即时更新
         /// </summary>
-        /// <param name="ctnrno"></param>
-        /// <param name="carriercd"></param>
-        /// <param name="vslname"></param>
-        /// <param name="voy"></param>
-        /// <param name="portcd"></param>
+        /// <param name="ctnrno">箱号</param>
+        /// <param name="carriercd">船东代码</param>
+        /// <param name="vslname">船名</param>
+        /// <param name="voy">航次</param>
+        /// <param name="portcd">港口代码</param>
         /// <returns></returns>
         public string BookingCtnrno(string ctnrno, string carriercd, string vslname, string voy, string portcd)
         {
