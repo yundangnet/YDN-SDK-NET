@@ -70,7 +70,7 @@ namespace YDN_SDK_NET.SDK
         /// </summary>
         /// <param name="filters">订阅单号对象数组</param>
         /// <returns></returns>
-        public string BookingUploadLst(List<Filter> filters)
+        public string BookingUploadLst(List<Filter> filterLst)
         {
             return "";
         }
@@ -80,7 +80,7 @@ namespace YDN_SDK_NET.SDK
         /// </summary>
         /// <param name="filters">订阅提单号对象数组</param>
         /// <returns></returns>
-        public string BookingDownloadLst(List<Filter> filters)
+        public string BookingDownloadLst(List<Filter> filterLst)
         {
             return "";
         }

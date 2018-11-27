@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YDN-SDK-NET</name>
+    </assembly>
+    <members>
+        <member name="M:YDN_SDK_NET.HttpUtil.HttpPost(System.String,System.String,System.String)">
+            <summary>
+            提交post请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryString">查询参数</param>
+            <param name="formString">提交数据</param>
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.HttpPost(System.String,KinnCould.QueryCollection,KinnCould.FormCollection)">
+            <summary>
+            提交post请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryData">查询参数</param>
+            <param name="formData">提交数据</param>
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.HttpPut(System.String,System.String,System.String)">
+            <summary>
+            提交put请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryString">查询参数</param>
+            <param name="formString">提交数据</param>
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.HttpPut(System.String,KinnCould.QueryCollection,KinnCould.FormCollection)">
+            <summary>
+            提交put请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryData">查询参数</param>
+            <param name="formData">提交数据</param>
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.HttpGet(System.String,System.String)">
+            <summary>
+            提交get请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryString">查询参数</param>      
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.HttpGet(System.String,KinnCould.QueryCollection)">
+            <summary>
+            提交get请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryData">查询参数</param>      
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.HttpDelete(System.String,System.String)">
+            <summary>
+            提交delete请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryString">查询参数</param>      
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.HttpDelete(System.String,KinnCould.QueryCollection)">
+            <summary>
+            提交delete请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryData">查询参数</param>      
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.ConvertToQueryString(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            将参数字典转为查询字符串
+            </summary>
+            <param name="queryData">参数字典</param>
+            <returns>查询字符串</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.EncodeQueryCollection(KinnCould.QueryCollection)">
+            <summary>
+            将queryString进行编码
+            </summary>
+            <param name="queryData">需要编码的queryString</param>
+            <returns>编码后的参数</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.HashRequest(KinnCould.QueryCollection,System.String,System.Boolean)">
+            <summary>
+            请求的参数进行Hash计算
+            </summary>
+            <param name="queryData">提交的查询参数集合</param>
+            <param name="publickey">签名的公钥</param>
+            <param name="addTimestamp">是否添加时间戳</param>
+            <remarks>配合VerifyHashRequest使用</remarks>
+        </member>
+        <member name="M:YDN_SDK_NET.HttpUtil.HashRequest(KinnCould.QueryCollection,KinnCould.FormCollection,System.String,System.Boolean)">
+            <summary>
+            请求的参数进行Hash计算
+            </summary>
+            <param name="queryData">提交的查询参数集合</param>
+            <param name="formData">提交的表单数据集合</param>
+            <param name="publickey">签名的公钥</param>
+            <param name="addTimestamp">是否添加时间戳</param>
+            <remarks>配合VerifyHashRequest使用</remarks>
+        </member>
+        <member name="M:YDN_SDK_NET.SDK.AirTracking.QueryAwbno(System.String,System.String)">
+            <summary>
+            空运订阅之即时更新
+            </summary>
+            <param name="blno"></param>
+            <param name="carriercd"></param>
+            <param name="portcd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN_SDK_NET.SDK.AirTracking.BookingUploadLst(System.Collections.Generic.List{YDN_SDK_NET.SDK.AirTracking.Filter})">
+            <summary>
+            空运订阅之批量上传订阅
+            </summary>
+            <param name="filters">订阅单号对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN_SDK_NET.SDK.AirTracking.BookingDownloadLst(System.Collections.Generic.List{YDN_SDK_NET.SDK.AirTracking.Filter})">
+            <summary>
+            空运订阅之批量下载订阅数据
+            </summary>
+            <param name="filters">订阅提单号对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="P:YDN_SDK_NET.SDK.AirTracking.Filter.awbno">
+            <summary>
+            运单号
+            </summary>
+        </member>
+        <member name="P:YDN_SDK_NET.SDK.AirTracking.Filter.carriercd">
+            <summary>
+            航司代码（必填）
+            </summary>
+        </member>
+        <member name="T:YDN_SDK_NET.SDK.SeaTracking">
+            <summary>
+            海运跟踪API
+            </summary>
+        </member>
+        <member name="M:YDN_SDK_NET.SDK.SeaTracking.BookingUploadLst(System.Collections.Generic.List{YDN_SDK_NET.SDK.SeaTracking.Filter})">
+            <summary>
+            海运订阅之批量上传订阅
+            </summary>
+            <param name="filters">订阅单号对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN_SDK_NET.SDK.SeaTracking.BookingDownloadLst(System.Collections.Generic.List{YDN_SDK_NET.SDK.SeaTracking.Filter})">
+            <summary>
+            海运订阅之批量下载订阅数据
+            </summary>
+            <param name="filters">订阅提单号对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN_SDK_NET.SDK.SeaTracking.BookingBlno(System.String,System.String,System.String)">
+            <summary>
+            海运提单号订阅之即时更新
+            </summary>
+            <param name="blno"></param>
+            <param name="carriercd"></param>
+            <param name="portcd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN_SDK_NET.SDK.SeaTracking.BookingCtnrno(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            海运箱号订阅之即时更新
+            </summary>
+            <param name="ctnrno"></param>
+            <param name="carriercd"></param>
+            <param name="vslname"></param>
+            <param name="voy"></param>
+            <param name="portcd"></param>
+            <returns></returns>
+        </member>
+        <member name="P:YDN_SDK_NET.SDK.SeaTracking.Filter.blno">
+            <summary>
+            提单号
+            </summary>
+        </member>
+        <member name="P:YDN_SDK_NET.SDK.SeaTracking.Filter.ctnrno">
+            <summary>
+            箱号
+            </summary>
+        </member>
+        <member name="P:YDN_SDK_NET.SDK.SeaTracking.Filter.carriercd">
+            <summary>
+            船东代码（必填）
+            </summary>
+        </member>
+        <member name="P:YDN_SDK_NET.SDK.SeaTracking.Filter.portcd">
+            <summary>
+            装货港港口代码
+            </summary>
+        </member>
+        <member name="P:YDN_SDK_NET.SDK.SeaTracking.Filter.vslname">
+            <summary>
+            船名（箱号订阅时必填）
+            </summary>
+        </member>
+        <member name="P:YDN_SDK_NET.SDK.SeaTracking.Filter.voy">
+            <summary>
+            航次（箱号订阅时必填）
+            </summary>
+        </member>
+        <member name="T:YDN_SDK_NET.SecurityUtil">
+            <summary>
+            安全性操作辅助类
+            </summary>
+        </member>
+        <member name="M:YDN_SDK_NET.SecurityUtil.HashData(System.String)">
+            <summary>
+            计算数据的hash值
+            </summary>
+            <param name="originalContent">原始数据</param>
+            <returns>数据的hash值</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.SecurityUtil.SignData(System.String,System.String)">
+            <summary>
+            对数据进行数字签名
+            </summary>
+            <param name="originalContent">待签名数据</param>
+            <param name="privatekey">RSA私钥</param>
+            <returns>数字签名后的字符串</returns>
+        </member>
+        <member name="M:YDN_SDK_NET.SecurityUtil.VerifySignedData(System.String,System.String,System.String)">
+            <summary>
+            验证数字签名
+            </summary>
+            <param name="originalContent">原始内容</param>
+            <param name="signedContent">签名后的内容</param>
+            <param name="publickey">RSA公钥</param>
+            <returns>验证通过返回true，否则返回false</returns>
+        </member>
+    </members>
+</doc>

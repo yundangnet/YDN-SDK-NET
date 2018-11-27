@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YDN-SDK-NET", "YDN-SDK-NET\YDN-SDK-NET.csproj", "{2C0C3F0D-63DE-4B0B-91EF-CD6EC3102216}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{C8A88AAF-8E66-45FC-ABA3-EC83DD398071}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2C0C3F0D-63DE-4B0B-91EF-CD6EC3102216}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C0C3F0D-63DE-4B0B-91EF-CD6EC3102216}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C0C3F0D-63DE-4B0B-91EF-CD6EC3102216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8A88AAF-8E66-45FC-ABA3-EC83DD398071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A88AAF-8E66-45FC-ABA3-EC83DD398071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A88AAF-8E66-45FC-ABA3-EC83DD398071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A88AAF-8E66-45FC-ABA3-EC83DD398071}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
