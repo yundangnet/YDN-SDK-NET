@@ -1,5 +1,4 @@
-﻿using KinnCould;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace YDN_SDK_NET
+namespace YDN
 {
     public class HttpUtil
     {
@@ -60,7 +59,7 @@ namespace YDN_SDK_NET
         /// <param name="queryData">查询参数</param>
         /// <param name="formData">提交数据</param>
         /// <returns>服务端响应</returns>
-        public static string HttpPost(string url, QueryCollection queryData, FormCollection formData)
+        public static string HttpPost(string url, Dictionary<string, string> queryData, Dictionary<string, string> formData)
         {
             return HttpPost(url, ConvertToQueryString(EncodeQueryCollection(queryData)), ConvertToQueryString(EncodeFormCollection(formData)));
         }
@@ -114,7 +113,7 @@ namespace YDN_SDK_NET
         /// <param name="queryData">查询参数</param>
         /// <param name="formData">提交数据</param>
         /// <returns>服务端响应</returns>
-        public static string HttpPut(string url, QueryCollection queryData, FormCollection formData)
+        public static string HttpPut(string url, Dictionary<string, string> queryData, Dictionary<string, string> formData)
         {
             return HttpPut(url, ConvertToQueryString(EncodeQueryCollection(queryData)), ConvertToQueryString(EncodeFormCollection(formData)));
         }
@@ -159,7 +158,7 @@ namespace YDN_SDK_NET
         /// <param name="url">请求地址</param>
         /// <param name="queryData">查询参数</param>      
         /// <returns>服务端响应</returns>
-        public static string HttpGet(string url, QueryCollection queryData)
+        public static string HttpGet(string url, Dictionary<string, string> queryData)
         {
             return HttpGet(url, ConvertToQueryString(EncodeQueryCollection(queryData)));
         }
@@ -203,7 +202,7 @@ namespace YDN_SDK_NET
         /// <param name="url">请求地址</param>
         /// <param name="queryData">查询参数</param>      
         /// <returns>服务端响应</returns>
-        public static string HttpDelete(string url, QueryCollection queryData)
+        public static string HttpDelete(string url, Dictionary<string, string> queryData)
         {
             return HttpDelete(url, ConvertToQueryString(EncodeQueryCollection(queryData)));
         }
@@ -213,7 +212,7 @@ namespace YDN_SDK_NET
         /// </summary>
         /// <param name="queryData">参数字典</param>
         /// <returns>查询字符串</returns>
-        public static string ConvertToQueryString(IEnumerable<KeyValuePair<string, string>> queryData)
+        public static string ConvertToQueryString(Dictionary<string, string> queryData)
         {
             string result = string.Empty;
             if (queryData != null && queryData.Count() > 0)
@@ -234,9 +233,9 @@ namespace YDN_SDK_NET
         /// </summary>
         /// <param name="queryData">需要编码的queryString</param>
         /// <returns>编码后的参数</returns>
-        public static QueryCollection EncodeQueryCollection(QueryCollection queryData)
+        public static Dictionary<string, string> EncodeQueryCollection(Dictionary<string, string> queryData)
         {
-            QueryCollection result = new QueryCollection();
+            Dictionary<string, string> result = new Dictionary<string, string>();
 
             foreach (KeyValuePair<string, string> item in queryData)
             {
@@ -251,9 +250,9 @@ namespace YDN_SDK_NET
         //</summary>
         //<param name="formData">需要编码的formData</param>
         //<returns>编码后的参数</returns>
-        public static FormCollection EncodeFormCollection(FormCollection formData)
+        public static Dictionary<string, string> EncodeFormCollection(Dictionary<string, string> formData)
         {
-            FormCollection result = new FormCollection();
+            Dictionary<string, string> result = new Dictionary<string, string>();
 
             foreach (KeyValuePair<string, string> item in formData)
             {
@@ -264,7 +263,7 @@ namespace YDN_SDK_NET
         }
 
 
-        private static IEnumerable<KeyValuePair<string, string>> OrderCollection(CollectionBase collection)
+        private static Dictionary<string, string> OrderCollection(Dictionary<string, string> collection)
         {
             //排序查询字符串
             Dictionary<string, string> dict = new Dictionary<string, string>();
@@ -290,7 +289,7 @@ namespace YDN_SDK_NET
         /// <param name="publickey">签名的公钥</param>
         /// <param name="addTimestamp">是否添加时间戳</param>
         /// <remarks>配合VerifyHashRequest使用</remarks>
-        public static void HashRequest(QueryCollection queryData, string publickey, bool addTimestamp)
+        public static void HashRequest(Dictionary<string, string> queryData, string publickey, bool addTimestamp)
         {
             if (queryData == null)
             {
@@ -316,7 +315,7 @@ namespace YDN_SDK_NET
         /// <param name="publickey">签名的公钥</param>
         /// <param name="addTimestamp">是否添加时间戳</param>
         /// <remarks>配合VerifyHashRequest使用</remarks>
-        public static void HashRequest(QueryCollection queryData, FormCollection formData, string publickey, bool addTimestamp)
+        public static void HashRequest(Dictionary<string, string> queryData, Dictionary<string, string> formData, string publickey, bool addTimestamp)
         {
             if (queryData == null)
             {
@@ -327,7 +326,7 @@ namespace YDN_SDK_NET
 
             if (formData == null)
             {
-                formData = new FormCollection();
+                formData = new Dictionary<string, string>();
             }
 
             //添加时间戳

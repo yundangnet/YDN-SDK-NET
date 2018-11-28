@@ -1,0 +1,700 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YDN</name>
+    </assembly>
+    <members>
+        <member name="P:YDN.ApiResponse.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:YDN.ApiResponse.status">
+            <summary>
+            状态码，0=成功；1=失败；1000=查无数据；1001=(⊙ω⊙)系统繁忙，请稍候再查；1005=未订阅;1006=第一次订阅成功;1007=已存在
+            </summary>
+        </member>
+        <member name="P:YDN.ApiResponse.message">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:YDN.HttpUtil.HttpPost(System.String,System.String,System.String)">
+            <summary>
+            提交post请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryString">查询参数</param>
+            <param name="formString">提交数据</param>
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.HttpPost(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            提交post请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryData">查询参数</param>
+            <param name="formData">提交数据</param>
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.HttpPut(System.String,System.String,System.String)">
+            <summary>
+            提交put请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryString">查询参数</param>
+            <param name="formString">提交数据</param>
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.HttpPut(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            提交put请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryData">查询参数</param>
+            <param name="formData">提交数据</param>
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.HttpGet(System.String,System.String)">
+            <summary>
+            提交get请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryString">查询参数</param>      
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.HttpGet(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            提交get请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryData">查询参数</param>      
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.HttpDelete(System.String,System.String)">
+            <summary>
+            提交delete请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryString">查询参数</param>      
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.HttpDelete(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            提交delete请求
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="queryData">查询参数</param>      
+            <returns>服务端响应</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.ConvertToQueryString(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            将参数字典转为查询字符串
+            </summary>
+            <param name="queryData">参数字典</param>
+            <returns>查询字符串</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.EncodeQueryCollection(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            将queryString进行编码
+            </summary>
+            <param name="queryData">需要编码的queryString</param>
+            <returns>编码后的参数</returns>
+        </member>
+        <member name="M:YDN.HttpUtil.HashRequest(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean)">
+            <summary>
+            请求的参数进行Hash计算
+            </summary>
+            <param name="queryData">提交的查询参数集合</param>
+            <param name="publickey">签名的公钥</param>
+            <param name="addTimestamp">是否添加时间戳</param>
+            <remarks>配合VerifyHashRequest使用</remarks>
+        </member>
+        <member name="M:YDN.HttpUtil.HashRequest(System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Boolean)">
+            <summary>
+            请求的参数进行Hash计算
+            </summary>
+            <param name="queryData">提交的查询参数集合</param>
+            <param name="formData">提交的表单数据集合</param>
+            <param name="publickey">签名的公钥</param>
+            <param name="addTimestamp">是否添加时间戳</param>
+            <remarks>配合VerifyHashRequest使用</remarks>
+        </member>
+        <member name="M:YDN.Tracking.Flight.BookingAwbno(System.String,System.String)">
+            <summary>
+            空运订阅之单票订阅
+            </summary>
+            <param name="awbno">运单号</param>
+            <param name="carriercd">航司代码（二字码）</param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN.Tracking.Flight.BookingUploadLst(System.Collections.Generic.List{YDN.Tracking.Flight.Filter})">
+            <summary>
+            空运订阅之批量上传订阅
+            </summary>
+            <param name="filterLst">订阅单号对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN.Tracking.Flight.BookingDownloadLst(System.Collections.Generic.List{YDN.Tracking.Flight.Filter})">
+            <summary>
+            空运订阅之批量下载订阅数据
+            </summary>
+            <param name="filterLst">订阅提单号对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="P:YDN.Tracking.Flight.Filter.awbno">
+            <summary>
+            运单号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Flight.Filter.carriercd">
+            <summary>
+            航司代码（二字码，必填）
+            </summary>
+        </member>
+        <member name="T:YDN.Tracking.Shipping">
+            <summary>
+            海运跟踪API
+            </summary>
+        </member>
+        <member name="M:YDN.Tracking.Shipping.BookingUploadLst(System.Collections.Generic.List{YDN.Tracking.Shipping.Filter})">
+            <summary>
+            海运订阅之批量上传订阅
+            </summary>
+            <param name="filterLst">订阅单号对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN.Tracking.Shipping.BookingDownloadLst(System.Collections.Generic.List{YDN.Tracking.Shipping.Filter})">
+            <summary>
+            海运订阅之批量下载订阅数据
+            </summary>
+            <param name="filterLst">订阅提单号对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN.Tracking.Shipping.BookingBlno(System.String,System.String,System.String,System.String)">
+            <summary>
+            海运提单号订阅之即时更新
+            </summary>
+            <param name="blno">提单号</param>
+            <param name="ctnrno">箱号（SITC新海丰订阅时，箱号必填）</param>
+            <param name="carriercd">船东代码</param>
+            <param name="portcd">港口代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:YDN.Tracking.Shipping.BookingCtnrno(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            海运箱号订阅之即时更新
+            </summary>
+            <param name="ctnrno">箱号</param>
+            <param name="carriercd">船东代码</param>
+            <param name="vslname">船名</param>
+            <param name="voy">航次</param>
+            <param name="portcd">港口代码</param>
+            <returns></returns>
+        </member>
+        <member name="T:YDN.Tracking.Shipping.Filter">
+            <summary>
+            上传订阅对象
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.Filter.blno">
+            <summary>
+            提单号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.Filter.ctnrno">
+            <summary>
+            箱号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.Filter.carriercd">
+            <summary>
+            船东代码（必填）
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.Filter.portcd">
+            <summary>
+            装货港港口代码
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.Filter.vslname">
+            <summary>
+            船名（箱号订阅时必填）
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.Filter.voy">
+            <summary>
+            航次（箱号订阅时必填）
+            </summary>
+        </member>
+        <member name="T:YDN.Tracking.Shipping.BookingResult">
+            <summary>
+            单票API返回对象
+            </summary>
+        </member>
+        <member name="T:YDN.Tracking.Shipping.LinerTracking">
+            <summary>
+            订阅主表
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.localkeyid">
+            <summary>
+            本地keyid
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.dkeyid">
+            <summary>
+            堆场提单信息主键
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.tkeyid">
+            <summary>
+            码头箱动态主键
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.ckeyid">
+            <summary>
+            海运提单信息主键
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.blprefix">
+            <summary>
+            提单号前缀
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.blno">
+            <summary>
+            提单号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.bkgno">
+            <summary>
+            订舱号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.trfsno">
+            <summary>
+            码头单号terminal reference no
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.ctnrno">
+            <summary>
+            箱号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.terminalnotype">
+            <summary>
+            码头单号类型（0=提单号，1=订舱号）
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.bkgvolumn">
+            <summary>
+            订舱箱量
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.pol">
+            <summary>
+            装货港
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.polcd">
+            <summary>
+            装货港代码
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.dtp">
+            <summary>
+            目的港
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.dtpcd">
+            <summary>
+            目的港代码
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.stsptime">
+            <summary>
+            提箱/空时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.stspplace">
+            <summary>
+            提箱/空地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.fcgitime">
+            <summary>
+            返场时间(外/拖装)
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.cggitime">
+            <summary>
+            入货时间(内/场装)
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.cloadtime">
+            <summary>
+            封箱时间(内/场装)
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.cytctime">
+            <summary>
+            集港时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.cytcplace">
+            <summary>
+            集港地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.gitmtime">
+            <summary>
+            进场时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.gitmplace">
+            <summary>
+            进场地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.passtime">
+            <summary>
+            放行时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.passplace">
+            <summary>
+            放行地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.ispass">
+            <summary>
+            海关是否放行（Y=放行；N=未放行；C=退关
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.ispreload">
+            <summary>
+            是否配载（Y=已配载；N=未配载；)
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.lobdtime">
+            <summary>
+            装船时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.lobdplace">
+            <summary>
+            装船地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.dlpttime">
+            <summary>
+            离港时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.dlptplace">
+            <summary>
+            离港地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.etdpol">
+            <summary>
+            预计离港时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.trsptime">
+            <summary>
+            中转时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.trspplace">
+            <summary>
+            中转地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.etapld">
+            <summary>
+            预计卸船时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.dschtime">
+            <summary>
+            卸船时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.dschplace">
+            <summary>
+            卸船地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.terminalpld">
+            <summary>
+            卸船码头
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.stcstime">
+            <summary>
+            提柜时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.stcsplace">
+            <summary>
+            提柜地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.rcvetime">
+            <summary>
+            还空时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.rcveplace">
+            <summary>
+            还空地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.currentnode">
+            <summary>
+            当前节点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.currentnodetime">
+            <summary>
+            当前节点时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.currentnodeplace">
+            <summary>
+            当前节点地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.depotcd">
+            <summary>
+            场站代码
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.depot">
+            <summary>
+            场站
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.dptloadid">
+            <summary>
+            堆场场/拖装标识(I=场装；E=拖装)
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.terminalcd">
+            <summary>
+            码头代码
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.terminal">
+            <summary>
+            码头
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.vslname">
+            <summary>
+            船名
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.voy">
+            <summary>
+            航次
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.carriercd">
+            <summary>
+            所属船东代码
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.carrier">
+            <summary>
+            所属船东
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.updatetime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.createtime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.declarationno">
+            <summary>
+            报关单号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.lstlinertrackingstatus">
+            <summary>
+            线性状态从表
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.referenceno">
+            <summary>
+            订阅号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTracking.isctnr">
+            <summary>
+            是否是箱号订阅（0=否;1=是）
+            </summary>
+        </member>
+        <member name="T:YDN.Tracking.Shipping.LinerTrackingStatus">
+            <summary>
+            订阅状态从表
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.keyid">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.fkeyid">
+            <summary>
+            海运线性记录表主键
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.blno">
+            <summary>
+            提单号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.statuscd">
+            <summary>
+            状态代码
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.statedescription">
+            <summary>
+            状态描述
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.statedescription_en">
+            <summary>
+            状态描述_英文
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.statustime">
+            <summary>
+            状态时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.statusplace">
+            <summary>
+            状态地点
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.statusplace_cn">
+            <summary>
+            状态地点_中文
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.vslname">
+            <summary>
+            船名
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.voy">
+            <summary>
+            航次
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.isest">
+            <summary>
+            是否预计时间（Y=是，N=否）
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.cancelid">
+            <summary>
+            无效标识（Y=已退载或甩柜）
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.updatetime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.LinerTrackingStatus.createtime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:YDN.Tracking.Shipping.UploadResponse">
+            <summary>
+            批量上传API返回结果
+            </summary>
+        </member>
+        <member name="T:YDN.Tracking.Shipping.BkResultModule">
+            <summary>
+            批量上传API具体单号订阅状态
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.BkResultModule.localkeyid">
+            <summary>
+            本地关键字
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.BkResultModule.referenceno">
+            <summary>
+            订阅号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.BkResultModule.ctnrno">
+            <summary>
+            箱号
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.BkResultModule.carriercd">
+            <summary>
+            船东
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.BkResultModule.isctnr">
+            <summary>
+            是否是箱号订阅（0=否;1=是）
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.BkResultModule.success">
+            <summary>
+            是否成功订阅
+            </summary>
+        </member>
+        <member name="P:YDN.Tracking.Shipping.BkResultModule.message">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:YDN.SecurityUtil">
+            <summary>
+            安全性操作辅助类
+            </summary>
+        </member>
+        <member name="M:YDN.SecurityUtil.HashData(System.String)">
+            <summary>
+            计算数据的hash值
+            </summary>
+            <param name="originalContent">原始数据</param>
+            <returns>数据的hash值</returns>
+        </member>
+        <member name="M:YDN.SecurityUtil.SignData(System.String,System.String)">
+            <summary>
+            对数据进行数字签名
+            </summary>
+            <param name="originalContent">待签名数据</param>
+            <param name="privatekey">RSA私钥</param>
+            <returns>数字签名后的字符串</returns>
+        </member>
+        <member name="M:YDN.SecurityUtil.VerifySignedData(System.String,System.String,System.String)">
+            <summary>
+            验证数字签名
+            </summary>
+            <param name="originalContent">原始内容</param>
+            <param name="signedContent">签名后的内容</param>
+            <param name="publickey">RSA公钥</param>
+            <returns>验证通过返回true，否则返回false</returns>
+        </member>
+    </members>
+</doc>

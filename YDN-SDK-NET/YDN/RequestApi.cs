@@ -1,19 +1,18 @@
-﻿using KinnCould;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YDN_SDK_NET
+namespace YDN
 {
     public class RequestApi
     {
         public static string HttpGet(string apiName, string secret, Dictionary<string, string> query)
         {
 
-            QueryCollection queryData = new QueryCollection();
+            Dictionary<string, string> queryData = new Dictionary<string, string>();
 
             if (query != null)
             {
@@ -28,7 +27,7 @@ namespace YDN_SDK_NET
         }
         public static string HttpPost(string apiName, string secret, Dictionary<string, string> query, Dictionary<string, string> form)
         {
-            QueryCollection queryData = new QueryCollection();
+            Dictionary<string, string> queryData = new Dictionary<string, string>();
 
             if (query != null)
             {
@@ -37,7 +36,7 @@ namespace YDN_SDK_NET
                     queryData.Add(item, query[item]);
                 }
             }
-            FormCollection formData = new FormCollection();
+            Dictionary<string, string> formData = new Dictionary<string, string>();
 
             if (form != null)
             {
@@ -52,7 +51,7 @@ namespace YDN_SDK_NET
         }
         public static string HttpPut(string apiName, string secret, Dictionary<string, string> query, Dictionary<string, string> form)
         {
-            QueryCollection queryData = new QueryCollection();
+            Dictionary<string, string> queryData = new Dictionary<string, string>();
 
             if (query != null)
             {
@@ -62,7 +61,7 @@ namespace YDN_SDK_NET
                 }
             }
 
-            FormCollection formData = new FormCollection();
+            Dictionary<string, string> formData = new Dictionary<string, string>();
 
             if (form != null)
             {
@@ -78,7 +77,7 @@ namespace YDN_SDK_NET
         public static string HttpDelete(string apiName, string secret, Dictionary<string, string> query)
         {
             var queryString = JsonConvert.SerializeObject(query);
-            QueryCollection queryData = new QueryCollection();
+            Dictionary<string, string> queryData = new Dictionary<string, string>();
             if (query != null)
             {
                 foreach (var item in query.Keys)

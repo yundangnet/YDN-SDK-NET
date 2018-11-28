@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YDN_SDK_NET
+namespace YDN
 {
     /// <summary>
     /// 安全性操作辅助类

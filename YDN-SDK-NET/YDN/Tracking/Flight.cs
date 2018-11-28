@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YDN_SDK_NET.SDK
+namespace YDN.Tracking
 {
-    public class AirTracking
+    public class Flight
     {
-        public AirTracking()
+        public Flight()
         {
             _companyid = "";
             _secret = "";
         }
-        public AirTracking(string setCompanycd, string setSecret)
+        public Flight(string setCompanycd, string setSecret)
         {
             _companyid = setCompanycd;
             _secret = setSecret;
