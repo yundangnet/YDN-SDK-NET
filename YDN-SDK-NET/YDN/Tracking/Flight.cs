@@ -6,31 +6,8 @@ using System.Threading.Tasks;
 
 namespace YDN.Tracking
 {
-    public class Flight
+    public class Flight : IService
     {
-        public Flight()
-        {
-            _companyid = "";
-            _secret = "";
-        }
-        public Flight(string setCompanycd, string setSecret)
-        {
-            _companyid = setCompanycd;
-            _secret = setSecret;
-        }
-        private string _companyid;
-        private string _secret;
-        public string companyId
-        {
-            get { return _companyid; }
-            set { _companyid = value; }
-        }
-        public string secret
-        {
-            get { return _secret; }
-            set { _secret = value; }
-        }
-
         /// <summary>
         /// 空运订阅之单票订阅
         /// </summary>
@@ -72,6 +49,24 @@ namespace YDN.Tracking
         public string BookingDownloadLst(List<Filter> filterLst)
         {
             return "";
+        }
+        public string CompanyId { get; set; }
+
+        public string Secret { get; set; }
+
+        public void Remove<T>(T filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ApiResponse With<T>(T filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ApiResponse With<T>(List<T> filterList)
+        {
+            throw new NotImplementedException();
         }
     }
 }

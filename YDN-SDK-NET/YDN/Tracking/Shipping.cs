@@ -9,32 +9,8 @@ namespace YDN.Tracking
     /// <summary>
     /// 海运跟踪API
     /// </summary>
-    public class Shipping
+    public class Shipping : IService
     {
-        public Shipping()
-        {
-            _companyid = "";
-            _secret = "";
-        }
-        public Shipping(string setCompanycd, string setSecret)
-        {
-            _companyid = setCompanycd;
-            _secret = setSecret;
-        }
-
-        private string _companyid;
-        private string _secret;
-        public string companyId
-        {
-            get { return _companyid; }
-            set { _companyid = value; }
-        }
-        public string secret
-        {
-            get { return _secret; }
-            set { _secret = value; }
-        }
-
         #region 对象模型
         /// <summary>
         /// 上传订阅对象
@@ -506,6 +482,25 @@ namespace YDN.Tracking
         public BookingResult BookingCtnrno(string ctnrno, string carriercd, string vslname, string voy, string portcd)
         {
             return null;
+        }
+
+        public string CompanyId { get; set; }
+
+        public string Secret { get; set; }
+
+        public ApiResponse With<T>(T filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ApiResponse With<T>(List<T> filterList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove<T>(T filter)
+        {
+            throw new NotImplementedException();
         }
     }
 }

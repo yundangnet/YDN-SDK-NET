@@ -46,14 +46,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiResponse.cs" />
+    <Compile Include="Cargo.cs" />
+    <Compile Include="First.cs" />
+    <Compile Include="History.cs" />
     <Compile Include="HttpUtil.cs" />
+    <Compile Include="IPublish.cs" />
+    <Compile Include="IQueryable.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="MyService.cs" />
+    <Compile Include="OperateUtil.cs" />
+    <Compile Include="Publisher.cs" />
     <Compile Include="RequestApi.cs" />
+    <Compile Include="EnterpriseService.cs" />
+    <Compile Include="ShippingResult.cs" />
+    <Compile Include="ISubscribale.cs" />
     <Compile Include="Tracking\Flight.cs" />
     <Compile Include="Tracking\Shipping.cs" />
     <Compile Include="SecurityUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

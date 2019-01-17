@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="YDN.ApiResponse&lt;TResult&gt;" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>ApiResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YDN.HttpUtil" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAIAAEAAAAAAABAAAAIBAAAAAAgAAAAw=</HashCode>
+      <FileName>HttpUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YDN.RequestApi" Collapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAEAAAAAAABAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>RequestApi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YDN.SecurityUtil" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAIAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>SecurityUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YDN.Tracking.Flight">
+    <Position X="5.25" Y="9.75" Width="2.25" />
+    <NestedTypes>
+      <Class Name="YDN.Tracking.Flight.Filter" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Tracking\Flight.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAgAAgAQABABAAAAAA=</HashCode>
+      <FileName>Tracking\Flight.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="YDN.Tracking.Shipping">
+    <Position X="4.75" Y="0.5" Width="3.25" />
+    <NestedTypes>
+      <Class Name="YDN.Tracking.Shipping.Filter" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Tracking\Shipping.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="YDN.Tracking.Shipping.BookingResult" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Tracking\Shipping.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="YDN.Tracking.Shipping.LinerTracking" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Tracking\Shipping.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="YDN.Tracking.Shipping.LinerTrackingStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Tracking\Shipping.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="YDN.Tracking.Shipping.UploadResponse" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Tracking\Shipping.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="YDN.Tracking.Shipping.BkResultModule" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Tracking\Shipping.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAABAAAIAA=</HashCode>
+      <FileName>Tracking\Shipping.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="YDN.EnterpriseService">
+    <Position X="5.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAA=</HashCode>
+      <FileName>EnterpriseService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YDN.MyService">
+    <Position X="9" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>MyService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YDN.Hisotry" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Hisotry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YDN.ShippingResult">
+    <Position X="9.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAQAAAACAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>ShippingResult.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="First" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="YDN.Cargo" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cargo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YDN.First">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>First.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cargo" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="YDN.ISubscribable">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAAAAAAA=</HashCode>
+      <FileName>ISubscribale.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="YDN.IQueryable">
+    <Position X="9" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAACAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>IQueryable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="YDN.IPublishable">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPublish.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="YDN.IService">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
