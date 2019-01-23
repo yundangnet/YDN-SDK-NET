@@ -20,27 +20,27 @@ namespace YDN.Tracking
             /// <summary>
             /// 提单号
             /// </summary>
-            public string blno { get; set; }
+            public string BlNo { get; set; }
             /// <summary>
             /// 箱号
             /// </summary>
-            public string ctnrno { get; set; }
+            public string CtnrNo { get; set; }
             /// <summary>
             /// 船东代码（必填）
             /// </summary>
-            public string carriercd { get; set; }
+            public string CarrierCd { get; set; }
             /// <summary>
             /// 装货港港口代码
             /// </summary>
-            public string portcd { get; set; }
+            public string PortCd { get; set; }
             /// <summary>
             /// 船名（箱号订阅时必填）
             /// </summary>
-            public string vslname { get; set; }
+            public string VslName { get; set; }
             /// <summary>
             /// 航次（箱号订阅时必填）
             /// </summary>
-            public string voy { get; set; }
+            public string Voy { get; set; }
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace YDN.Tracking
         /// </summary>
         public class LinerTracking
         {
-            public string keyid { get; set; }
+            public string KeyId { get; set; }
             /// <summary>
             /// 本地keyid
             /// </summary>
