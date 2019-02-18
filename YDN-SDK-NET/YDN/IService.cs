@@ -5,7 +5,7 @@ using System.Text;
 
 namespace YDN
 {
-    public interface IService:ISubscribable,IPublishable
+    public interface IService<T> : ISubscribable<T>, IPublishable<T>
     {
 
     }

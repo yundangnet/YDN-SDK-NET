@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace YDN.Tracking
 {
-    public class Flight : IService
+    public class FlightFilter
+    {
+        /// <summary>
+        /// 运单号
+        /// </summary>
+        public string awbno { get; set; }
+        /// <summary>
+        /// 航司代码（二字码，必填）
+        /// </summary>
+        public string carriercd { get; set; }
+    }
+    public class Flight : IService<FlightFilter>
     {
         /// <summary>
         /// 空运订阅之单票订阅
@@ -19,16 +30,9 @@ namespace YDN.Tracking
             return "";
         }
 
-        public class Filter
+        public class Filter : FlightFilter
         {
-            /// <summary>
-            /// 运单号
-            /// </summary>
-            public string awbno { get; set; }
-            /// <summary>
-            /// 航司代码（二字码，必填）
-            /// </summary>
-            public string carriercd { get; set; }
+
         }
 
         /// <summary>
@@ -54,17 +58,17 @@ namespace YDN.Tracking
 
         public string Secret { get; set; }
 
-        public void Remove<T>(T filter)
+        public void Remove(FlightFilter filter)
         {
             throw new NotImplementedException();
         }
 
-        public ApiResponse With<T>(T filter)
+        public ApiResponse With(FlightFilter filter)
         {
             throw new NotImplementedException();
         }
 
-        public ApiResponse With<T>(List<T> filterList)
+        public ApiResponse With(List<FlightFilter> filterList)
         {
             throw new NotImplementedException();
         }

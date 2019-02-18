@@ -49,6 +49,10 @@ namespace YDN
             return flight;
         }
 
+        /// <summary>
+        /// 海运跟踪
+        /// </summary>
+        /// <returns></returns>
         public Shipping Shipping()
         {
             var shipping = new Shipping

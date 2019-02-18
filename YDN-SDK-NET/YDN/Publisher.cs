@@ -5,9 +5,9 @@ using System.Text;
 
 namespace YDN
 {
-    public class Publisher : IPublishable
+    public class Publisher<T> : IPublishable<T>
     {
-        public IQueryable<ISubscribable> Query()
+        public IQueryable<ISubscribable<T>> Query()
         {
             throw new System.NotImplementedException();
         }

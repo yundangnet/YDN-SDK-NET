@@ -8,14 +8,26 @@ namespace YDN
 {
     public static class OperateUtil
     {
-        public static ApiResponse Subscribe<T>(this IService service,T filter)
+        /// <summary>
+        /// 上传订阅
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="service"></param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        public static ApiResponse Subscribe<T>(this IService<T> service, T filter)
         {
             return service.With(filter);
         }
 
-        public static ApiResponse Subscribe<T>(this IService service, List<T> filterList)
+        public static ApiResponse Subscribe<T>(this IService<T> service, List<T> filterList)
         {
             return service.With(filterList);
+        }
+
+        public static ApiResponse GetData<T>(this IService<T> service, T filter)
+        {
+            return service.With(filter);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace YDN
 {
-    public interface IPublishable
+    public interface IPublishable<T>
     {
     }
 }

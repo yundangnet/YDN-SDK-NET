@@ -54,13 +54,39 @@ namespace Test
             ////订阅的对象数组
             List<YDN.Tracking.Flight.Filter> airFilterLst = new List<YDN.Tracking.Flight.Filter>();
 
-            var airFilter = new YDN.Tracking.Flight.Filter
+            //单票订阅
+            var shippingFilter = new YDN.Tracking.Shipping.Filter
             {
-                awbno = "07419533780",
-                carriercd = "KL"
+                //订阅号（提单号或订舱号都可）
+                ReferenceNo = "WMHB004074",
+                //箱号（使用箱号订阅时必填，否则可不填）
+                CtnrNo = "",
+                //船东代码（必填，详见云当船东代码）
+                CarrierCd = "CMA"
             };
+            var resultSubscribe = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().Subscribe(shippingFilter);
+            var resultData = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().GetData(shippingFilter);
+            
+            //YDN.Tracking.Shipping.BookingResult
+            //成功调用结果
+            //result={status:0,message:null};
+            //失败调用结果
+            //result={status:1,message:"船东代码不可为空"};
 
-            airFilterLst.Add(airFilter);
+            //调用结果result对象结构,YDN.ApiResponse
+            //{
+            //    /// <summary>
+            //    /// 调用结果代码：0=成功；1=失败
+            //    /// </summary>
+            //    public int status { get; set; }
+            //    /// <summary>
+            //    /// 错误信息
+            //    /// </summary>
+            //    public string message { get; set; }
+            //}
+
+
+            //airFilterLst.Add(airFilter);
 
             ////空运批量上传订阅
             //var uploadAirResult = airTrack.BookingUploadLst(airFilterLst);
@@ -81,10 +107,10 @@ namespace Test
             #region service test
 
             var es = EnterpriseService.GetInstance("云当企业代码", "云当秘钥");
-            var result = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Flight().Subscribe(airFilter);
-            var resultList = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Flight().Subscribe(airFilterLst);
-            var result2 = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().Subscribe(airFilter);
-            var resultList2 = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().Subscribe(airFilterLst);
+            //var result = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Flight().Subscribe(airFilter);
+            //var resultList = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Flight().Subscribe(airFilterLst);
+            //var result2 = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().Subscribe(shippingFilter);
+            //var resultList2 = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().Subscribe(airFilterLst);
 
             #endregion
         }

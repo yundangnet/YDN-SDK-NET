@@ -5,12 +5,12 @@ using System.Text;
 
 namespace YDN
 {
-    public interface ISubscribable
+    public interface ISubscribable<T>
     {
-        void Remove<T>(T filter);
+        void Remove(T filter);
 
-        ApiResponse With<T>(T filter);
+        ApiResponse With(T filter);
 
-        ApiResponse With<T>(List<T> filterList);
+        ApiResponse With(List<T> filterList);
     }
 }
