@@ -20,14 +20,19 @@ namespace YDN
             return service.With(filter);
         }
 
-        public static ApiResponse Subscribe<T>(this IService<T> service, List<T> filterList)
+        public static ApiResponse Subscribe<TFilter>(this IService<TFilter> service, List<TFilter> filterList)
         {
             return service.With(filterList);
         }
 
-        public static ApiResponse GetData<T>(this IService<T> service, T filter)
+        public static ApiResponse<TResult> GetData<TResult, TFilter>(this IService<TResult, TFilter> service, TFilter filter)
         {
-            return service.With(filter);
+            return service.WithResult(filter);
+        }
+
+        public static ApiResponse<TResult> GetData<TResult, TFilter>(this IService<TResult, TFilter> service, List<TFilter> filterList)
+        {
+            return service.WithResult(filterList);
         }
     }
 }

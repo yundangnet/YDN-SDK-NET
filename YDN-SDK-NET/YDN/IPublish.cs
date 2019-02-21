@@ -8,4 +8,7 @@ namespace YDN
     public interface IPublishable<T>
     {
     }
+    public interface IPublishable<TResult, T>
+    {
+    }
 }

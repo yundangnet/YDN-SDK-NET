@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using YDN.Tracking;
 
 namespace YDN
 {
-    public interface ISubscribable<T>
+    public interface ISubscribable<TFilter>
     {
-        void Remove(T filter);
+        void Remove(TFilter filter);
 
-        ApiResponse With(T filter);
+        ApiResponse With(TFilter filter);
 
-        ApiResponse With(List<T> filterList);
+        ApiResponse With(List<TFilter> filterList);
+    }
+    public interface ISubscribable<TResult, TFilter>
+    {
+        ApiResponse<TResult> WithResult(TFilter filter);
+
+        ApiResponse<TResult> WithResult(List<TFilter> filterList);
     }
 }

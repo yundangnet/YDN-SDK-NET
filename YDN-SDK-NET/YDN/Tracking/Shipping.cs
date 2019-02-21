@@ -407,7 +407,7 @@ namespace YDN.Tracking
     /// <summary>
     /// 海运跟踪API
     /// </summary>
-    public class Shipping : IService<ShippingFilter>
+    public class Shipping : IService<Shipping.BookingResult, Shipping.Filter>, IService<Shipping.Filter>
     {
         #region 对象模型
         /// <summary>
@@ -466,6 +466,43 @@ namespace YDN.Tracking
             return null;
         }
 
+        public ApiResponse BookingUploadList(List<Filter> filterLst)
+        {
+            string url = "http://apis.yundangnet.com/api/v1/bookingsv2";
+            Dictionary<string, string> queryData = new Dictionary<string, string>();
+            Dictionary<string, string> formData = new Dictionary<string, string>();
+            queryData.Add("companyid", CompanyId);
+
+            string formString1 = JsonConvert.SerializeObject(filterLst);
+            formData.Add("data", formString1);
+
+            HttpUtil.HashRequest(queryData, formData, Secret, true);
+            HttpUtil.HttpPost(url, queryData, formData);
+            return null;
+        }
+
+        public ApiResponse<TResult> BookingUploadList<TResult>(List<Filter> filterLst)
+        {
+            string url = "http://apis.yundangnet.com/api/v1/bookingsv2";
+            Dictionary<string, string> queryData = new Dictionary<string, string>();
+            Dictionary<string, string> formData = new Dictionary<string, string>();
+            queryData.Add("companyid", CompanyId);
+
+            string formString1 = JsonConvert.SerializeObject(filterLst);
+            formData.Add("data", formString1);
+
+            HttpUtil.HashRequest(queryData, formData, Secret, true);
+            var json = HttpUtil.HttpPost(url, queryData, formData);
+            var results = JsonConvert.DeserializeObject<List<TResult>>(json);
+            var apiResponse = new ApiResponse<TResult>
+            {
+                status = 0,
+                message = "成功",
+                results = results
+            };
+            return apiResponse;
+        }
+
         /// <summary>
         /// 海运订阅之批量下载订阅数据
         /// </summary>
@@ -507,31 +544,29 @@ namespace YDN.Tracking
 
         public string Secret { get; set; }
 
-        public ApiResponse With(ShippingFilter filter)
+        public void Remove(Shipping.Filter filter)
         {
-            Filter filterLst = filter as Filter;
-            //BookingUploadLst(filterList);
             throw new NotImplementedException();
         }
 
-
-
-        public ApiResponse With(List<ShippingFilter> filterList)
+        public ApiResponse With(Shipping.Filter filter)
         {
-            if (filterList == null) return new ApiResponse();
-            List<Filter> filterLst = new List<Filter>();
-            foreach (var item in filterList)
-            {
-                filterLst.Add(item as Filter);
-            }
-            BookingUploadLst(filterLst);
             throw new NotImplementedException();
         }
 
+        public ApiResponse With(List<Shipping.Filter> filterList)
+        {
+            return BookingUploadList(filterList);
+        }
 
-        public void Remove(ShippingFilter filter)
+        public ApiResponse<BookingResult> WithResult(Shipping.Filter filter)
         {
             throw new NotImplementedException();
+        }
+
+        public ApiResponse<BookingResult> WithResult(List<Shipping.Filter> filterList)
+        {
+            return BookingUploadList<BookingResult>(filterList);
         }
     }
 }

@@ -9,4 +9,9 @@ namespace YDN
     {
 
     }
+
+    public interface IService<TResult, T> : ISubscribable<TResult, T>, IPublishable<TResult, T>
+    {
+
+    }
 }

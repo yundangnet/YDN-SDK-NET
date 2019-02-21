@@ -64,8 +64,10 @@ namespace Test
                 //船东代码（必填，详见云当船东代码）
                 CarrierCd = "CMA"
             };
-            var resultSubscribe = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().Subscribe(shippingFilter);
-            var resultData = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().GetData(shippingFilter);
+
+            var shippingFilterList = new List<YDN.Tracking.Shipping.Filter> {shippingFilter};
+            //var resultSubscribe = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().Subscribe(shippingFilter);
+            //var resultData = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().GetData(shippingFilter);
             
             //YDN.Tracking.Shipping.BookingResult
             //成功调用结果
@@ -108,9 +110,10 @@ namespace Test
 
             var es = EnterpriseService.GetInstance("云当企业代码", "云当秘钥");
             //var result = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Flight().Subscribe(airFilter);
-            //var resultList = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Flight().Subscribe(airFilterLst);
+            var resultList = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Flight().Subscribe(airFilterLst);
             //var result2 = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().Subscribe(shippingFilter);
             //var resultList2 = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().Subscribe(airFilterLst);
+            var resultList3 = EnterpriseService.GetInstance("云当企业代码", "云当秘钥").Shipping().GetData(shippingFilterList);
 
             #endregion
         }

@@ -17,7 +17,12 @@ namespace YDN.Tracking
         /// </summary>
         public string carriercd { get; set; }
     }
-    public class Flight : IService<FlightFilter>
+
+    public class BookingResult
+    {
+    }
+
+    public class Flight : IService<Flight.Filter>, IService<BookingResult, Flight.Filter>
     {
         /// <summary>
         /// 空运订阅之单票订阅
@@ -58,17 +63,27 @@ namespace YDN.Tracking
 
         public string Secret { get; set; }
 
-        public void Remove(FlightFilter filter)
+        public void Remove(Flight.Filter filter)
         {
             throw new NotImplementedException();
         }
 
-        public ApiResponse With(FlightFilter filter)
+        public ApiResponse With(Flight.Filter filter)
         {
             throw new NotImplementedException();
         }
 
-        public ApiResponse With(List<FlightFilter> filterList)
+        public ApiResponse With(List<Flight.Filter> filterList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ApiResponse<BookingResult> WithResult(Flight.Filter filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ApiResponse<BookingResult> WithResult(List<Flight.Filter> filterList)
         {
             throw new NotImplementedException();
         }
