@@ -451,7 +451,7 @@ namespace YDN.Tracking
         /// </summary>
         /// <param name="filterLst">订阅单号对象数组</param>
         /// <returns></returns>
-        public UploadResponse BookingUploadLst(List<Filter> filterLst)
+        private UploadResponse BookingUploadList(List<Filter> filterLst)
         {
             string url = "http://apis.yundangnet.com/api/v1/bookingsv2";
             Dictionary<string, string> queryData = new Dictionary<string, string>();
@@ -462,26 +462,12 @@ namespace YDN.Tracking
             formData.Add("data", formString1);
 
             HttpUtil.HashRequest(queryData, formData, Secret, true);
-            HttpUtil.HttpPost(url, queryData, formData);
-            return null;
+            var json = HttpUtil.HttpPost(url, queryData, formData);
+            var results = JsonConvert.DeserializeObject<UploadResponse>(json);
+            return results;
         }
 
-        public ApiResponse BookingUploadList(List<Filter> filterLst)
-        {
-            string url = "http://apis.yundangnet.com/api/v1/bookingsv2";
-            Dictionary<string, string> queryData = new Dictionary<string, string>();
-            Dictionary<string, string> formData = new Dictionary<string, string>();
-            queryData.Add("companyid", CompanyId);
-
-            string formString1 = JsonConvert.SerializeObject(filterLst);
-            formData.Add("data", formString1);
-
-            HttpUtil.HashRequest(queryData, formData, Secret, true);
-            HttpUtil.HttpPost(url, queryData, formData);
-            return null;
-        }
-
-        public ApiResponse<TResult> BookingUploadList<TResult>(List<Filter> filterLst)
+        private ApiResponse<TResult> BookingUploadList<TResult>(List<Filter> filterLst)
         {
             string url = "http://apis.yundangnet.com/api/v1/bookingsv2";
             Dictionary<string, string> queryData = new Dictionary<string, string>();
@@ -508,36 +494,20 @@ namespace YDN.Tracking
         /// </summary>
         /// <param name="filterLst">订阅提单号对象数组</param>
         /// <returns></returns>
-        public List<BookingResult> BookingDownloadLst(List<Filter> filterLst)
+        private List<BookingResult> BookingDownloadLst(List<Filter> filterLst)
         {
-            return null;
-        }
+            string url = "http://apis.yundangnet.com/api/v1/bookingv2-liner";
+            Dictionary<string, string> queryData = new Dictionary<string, string>();
+            Dictionary<string, string> formData = new Dictionary<string, string>();
+            queryData.Add("companyid", CompanyId);
 
-        /// <summary>
-        /// 海运提单号订阅之即时更新
-        /// </summary>
-        /// <param name="blno">提单号</param>
-        /// <param name="ctnrno">箱号（SITC新海丰订阅时，箱号必填）</param>
-        /// <param name="carriercd">船东代码</param>
-        /// <param name="portcd">港口代码</param>
-        /// <returns></returns>
-        public BookingResult BookingBlno(string blno, string ctnrno, string carriercd, string portcd)
-        {
-            return null;
-        }
+            string formString1 = JsonConvert.SerializeObject(filterLst);
+            formData.Add("data", formString1);
 
-        /// <summary>
-        /// 海运箱号订阅之即时更新
-        /// </summary>
-        /// <param name="ctnrno">箱号</param>
-        /// <param name="carriercd">船东代码</param>
-        /// <param name="vslname">船名</param>
-        /// <param name="voy">航次</param>
-        /// <param name="portcd">港口代码</param>
-        /// <returns></returns>
-        public BookingResult BookingCtnrno(string ctnrno, string carriercd, string vslname, string voy, string portcd)
-        {
-            return null;
+            HttpUtil.HashRequest(queryData, formData, Secret, true);
+            var json = HttpUtil.HttpPost(url, queryData, formData);
+            var results = JsonConvert.DeserializeObject<List<BookingResult>>(json);
+            return results;
         }
 
         public string CompanyId { get; set; }
@@ -549,24 +519,51 @@ namespace YDN.Tracking
             throw new NotImplementedException();
         }
 
-        public ApiResponse With(Shipping.Filter filter)
+        /// <summary>
+        /// 单票查询并订阅
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        public BookingResult Subscribe(Shipping.Filter filter)
         {
-            throw new NotImplementedException();
+            string url = "http://apis.yundangnet.com/api/v1/seabooking-download";
+            Dictionary<string, string> queryData = new Dictionary<string, string>();
+            Dictionary<string, string> formData = new Dictionary<string, string>();
+            queryData.Add("companyid", CompanyId);
+
+            string formString1 = JsonConvert.SerializeObject(filter);
+            formData.Add("data", formString1);
+
+            HttpUtil.HashRequest(queryData, formData, Secret, true);
+            var json = HttpUtil.HttpPost(url, queryData, formData);
+            var results = JsonConvert.DeserializeObject<BookingResult>(json);
+            return results;
         }
 
-        public ApiResponse With(List<Shipping.Filter> filterList)
+        public UploadResponse Subscribe(List<Shipping.Filter> filterList)
         {
             return BookingUploadList(filterList);
         }
 
-        public ApiResponse<BookingResult> WithResult(Shipping.Filter filter)
+        public BookingResult GetData(Shipping.Filter filter)
         {
-            throw new NotImplementedException();
+            string url = "http://apis.yundangnet.com/api/v1/seabooking-download";
+            Dictionary<string, string> queryData = new Dictionary<string, string>();
+            Dictionary<string, string> formData = new Dictionary<string, string>();
+            queryData.Add("companyid", CompanyId);
+
+            string formString1 = JsonConvert.SerializeObject(filter);
+            formData.Add("data", formString1);
+
+            HttpUtil.HashRequest(queryData, formData, Secret, true);
+            var json = HttpUtil.HttpPost(url, queryData, formData);
+            var results = JsonConvert.DeserializeObject<BookingResult>(json);
+            return results;
         }
 
-        public ApiResponse<BookingResult> WithResult(List<Shipping.Filter> filterList)
+        public List<BookingResult> GetData(List<Shipping.Filter> filterList)
         {
-            return BookingUploadList<BookingResult>(filterList);
+            return BookingDownloadLst(filterList);
         }
     }
 }

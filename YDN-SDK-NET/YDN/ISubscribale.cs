@@ -7,9 +7,9 @@ namespace YDN
     {
         void Remove(TFilter filter);
 
-        ApiResponse With(TFilter filter);
+       // ApiResponse With(TFilter filter);
 
-        ApiResponse With(List<TFilter> filterList);
+        //ApiResponse With(List<TFilter> filterList);
     }
     public interface ISubscribable<TResult, TFilter>
     {
